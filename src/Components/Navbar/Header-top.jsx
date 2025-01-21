@@ -48,36 +48,33 @@ function Qism3() {
   );
 }
 
-function Qism4(parms) {
+function Qism4() {
   const [change, setChange] = useState(false);
 
   const changeflag = () => {
     setChange((prev) => !prev);
   };
   return (
-    <div onClick={changeflag} className="relative cursor-pointer">
-      <p className="flex items-center ">
+    <div onClick={changeflag} className=" cursor-pointer">
+      <p className="flex items-center relative ">
         {" "}
         <img src={uzb} alt="" /> O'zbekcha
       </p>
 
-    {change&&(  <div className="">
-    <p className="flex items-center gap-3 ">
-        <img
-          width={25}
-          src={
-            "https://static.vecteezy.com/system/resources/previews/016/328/914/non_2x/russia-flat-rounded-flag-icon-with-transparent-background-free-png.png"
-          }
-          alt=""
-        />
-        Ruscha</p>
-
-        <p className="flex items-center gap-3 ">
-        <img width={25} src={"https://static.vecteezy.com/system/resources/thumbnails/015/272/138/small/united-kingdom-3d-rounded-flag-with-transparent-background-free-png.png"} alt="" />
-          English</p>
-      </div> )}
-
-
+      {change && (
+        <div className="">
+          <p className="flex items-center gap-3 absolute ">
+            <img
+              width={25}
+              src={
+                "https://static.vecteezy.com/system/resources/previews/016/328/914/non_2x/russia-flat-rounded-flag-icon-with-transparent-background-free-png.png"
+              }
+              alt=""
+            />
+            Ruscha
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import yulduz from "../../assets/yulduz.svg";
 import Button from "../../assets/Button.svg";
 
-function ClikDiv() {
+function ClikDiv(open1) {
   const [data, setData] = useState([]);
 
 
@@ -19,8 +19,11 @@ function ClikDiv() {
 
   return (
    
-    <div className='bg-slate-400 relative w-full z-50 '>
-       <div className=' z-50  bg-white t-0 static w-[950px]'>
+<div className='w-full h-[800px] bg-slate-200/50 fixed z-50 left-0' onClick={()=>{
+  open1(false)
+}}>
+      
+<div className=' z-40 bg-white t-0 fixed h-[100vh] w-[800px] opacity-100 overflow-auto scroll-m-0 ml-[350px] '>
       <div className=" m-auto px-24 mt-6">
         <h1 className="font-bold text-3xl">Mashhurlar {">"}</h1>
 
@@ -31,15 +34,17 @@ function ClikDiv() {
         </div>
       </div>
     </div>
-    </div>
+
+</div>
+    
   );
 }
 
-function Cards({ product}) {
+function Cards({product}) {
   return (
-    <div className="w-[230px] p-1 rounded-xl">
+    <div className="w-[180px] p-1 rounded-xl">
       <img
-        width={200}
+        width={150}
         height={300}
         className="rounded-lg"
         src={product.images?.[0] || ""}

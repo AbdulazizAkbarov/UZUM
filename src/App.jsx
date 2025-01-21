@@ -13,14 +13,21 @@ import HeaderBottom from "./Components/Navbar/Header_bottom";
 import Katalog from "./Components/Navbar/Katalog";
 import Section1 from "./Components/Hero/Section1";
 import Section2 from "./Components/Hero/Section2";
+import { Route, Routes } from "react-router";
+import About from "./Components/Hero/About";
+import Home from "./Components/home";
 function App() {
   return (
     <div>
       <HeaderTop />
       <Navbar />
       <HeaderBottom />
-      <Section1 />
-      <Section2 />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about/:id" element={<About />} />
+      </Routes>
     </div>
   );
 }

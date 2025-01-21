@@ -57,7 +57,7 @@ function Carusel() {
         />
         {index < url.length - 1 && (
           <button
-            className="btn absolute z-20 left-[1320px] top-[380px] bg-slate-200 px-4 py-3 rounded-[50%]"
+            className="btn absolute z-2 0 left-[1320px] top-[380px] bg-slate-200 px-4 py-3 rounded-[50%]"
             onClick={Next}
           >
             <img src={ong} alt="" />
@@ -70,7 +70,7 @@ function Carusel() {
           alt=""
           className={`w-full h-[450px] rounded-lg 
            relative`}
-          onClick={() => setIndex(i)}
+          onClick={() => setIndex(index)}
         />
       </div>
     </div>

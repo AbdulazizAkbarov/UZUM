@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Correct import for Link
 
 import yulduz from "../../assets/yulduz.svg";
 import Button from "../../assets/Button.svg";
@@ -17,14 +18,18 @@ function Section2() {
       });
   }, []);
 
+  const handleDelete = (id) => {
+    setData((prevData) => prevData.filter((item) => item.id !== id));
+  };
+
   return (
     <div>
       <div className="max-w-[1440px] m-auto px-24 mt-6">
         <h1 className="font-bold text-3xl">Mashhurlar {">"}</h1>
 
         <div className="mt-10 flex gap-5 flex-wrap">
-          {data.map((item, index) => (
-            <Cards key={index} product={item} />
+          {data.map((item) => (
+            <Cards key={item.id} product={item} handleDelete={handleDelete} />
           ))}
         </div>
       </div>
@@ -32,16 +37,18 @@ function Section2() {
   );
 }
 
-function Cards({ product}) {
+function Cards({ product, handleDelete }) {
   return (
     <div className="w-[230px] p-1 rounded-xl">
-      <img
-        width={200}
-        height={300}
-        className="rounded-lg"
-        src={product.images?.[0] || ""}
-        alt={product.title || "Mahsulot rasmi"}
-      />
+      <Link to={`/about/${product.id}`}>
+        <img
+          width={200}
+          height={300}
+          className="rounded-lg"
+          src={product.images?.[0] || ""}
+          alt={"s"}
+        />
+      </Link>
       <div>
         <p className="mt-2">{product.title || "No Title"}</p>
         <p className="flex items-center gap-2 text-gray-400 text-sm">
@@ -60,11 +67,11 @@ function Cards({ product}) {
               {product.price ? `${product.price} so'm` : "Narx mavjud emas"}
             </p>
           </div>
-          <button className="mr-4" onClick={()=>{
-
-            product([])
-          }}>
-            <img src={Button} alt="Button" />
+          <button
+            className= ""
+            onClick={() => handleDelete(product.id)}
+          >
+            Delete
           </button>
         </div>
       </div>
